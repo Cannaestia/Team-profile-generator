@@ -133,12 +133,7 @@ const addIntern = () => {
     })
 }
 
-const createTeam = () => {
-  fs.writeFile('./dist/team.html', template(employees), function (err) {
-    console.log('Team Built!');
-})
-}
-createTeam();
+
 
 
 
