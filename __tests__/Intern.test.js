@@ -3,37 +3,33 @@ const Intern = require("../lib/Intern");
 describe("Intern", () => {
     describe("name", () => {
         it ('take in inter name', () => {
-            const algo = new Intern;
-            const name = 'Ron';
-            const result = algo.getName(name);
-            expect(result).toEqual(name);
+            const intern = new Intern('Ron');
+            const result = intern.getName();
+            expect(result).toEqual('Ron');
         })
     })
 
     describe("id", () => {
         it ('take in an intern id', () => {
-            const algo = new Intern;
-            const id = 1234;
-            const result = algo.getID(id);
-            expect(result).toEqual(id);
+            const intern = new Intern('Ron', 1234);
+            const result = intern.getId();
+            expect(result).toEqual(1234);
         })
     })
 
     describe("email", () => {
         it ('take in an intern email', () => {
-            const algo = new Intern;
-            const email = 'RonWeasley@hogwarts.com';
-            const result = algo.getEmail(email);
-            expect(result).toEqual(email);
+            const intern = new Intern('Ron', 1234, 'RonWeasley@hogwarts.com');
+            const result = intern.getEmail();
+            expect(result).toEqual('RonWeasley@hogwarts.com');
         })
     })
 
     describe('school', ()=> {
         it ('take in an intern school', () => {
-            const algo = new Intern;
-            const school = 'Hogwarts';
-            const result = algo.getSchool(school);
-            expect(result).toEqual(school);
+            const intern = new Intern('Ron', 1234, 'RonWeasley@hogwarts.com', 'Hogwarts');
+            const result = intern.getSchool();
+            expect(result).toEqual('Hogwarts');
         })
     })
 

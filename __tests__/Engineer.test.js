@@ -3,37 +3,33 @@ const Engineer = require("../lib/Engineer");
 describe("Engineer", () => {
     describe("name", () => {
         it ('take in an engineer name', () => {
-            const algo = new Engineer();
-            const name = 'Harry';
-            const result = algo.getName(name);
-            expect(result).toEqual(name);
+            const engineer = new Engineer('Harry');
+            const result = engineer.getName();
+            expect(result).toEqual('Harry');
         })
     })
     
-    descritbe("id", () => {
+    describe("id", () => {
         it ('take in an engineer id', () => {
-            const algo = new Engineer();
-            const id = 0366;
-            const result = algo.getID(id);
-            expect(result).toEqual(id); 
+            const engineer = new Engineer('Harry', 5678);
+            const result = engineer.getId();
+            expect(result).toEqual(5678); 
         })
     })
 
     describe("email", () => {
         it ('take in an engineer email', () => {
-            const algo = new Engineer();
-            const email = 'Harry123@gmail.com';
-            const result = algo.getEmail(email);
-            expect(result).toEqual(email);
+            const engineer = new Engineer('Harry', 5678, 'Harry123@gmail.com' );
+            const result = engineer.getEmail();
+            expect(result).toEqual('Harry123@gmail.com');
         })
     })
 
     describe("github", () => {
         it ('take in an engineer github page', () => {
-            const algo = new Engineer;
-            const github = 'HarryGit12'
-            const result = algo.getGithub(github);
-            expect(result).toEqual(github);
+            const engineer = new Engineer ('Harry', 5678, 'Harry123@gmail.com', 'HarryGit12');
+            const result = engineer.getGithub();
+            expect(result).toEqual('HarryGit12');
         })
     })
 });

@@ -6,6 +6,8 @@ const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const fs = require('fs');
 const template = require('./src/page-template.js');
+const { Console } = require('console');
+
 
 const employees = [];
 
@@ -34,45 +36,48 @@ const addManager = () => {
       },
     ])
     .then((answers) =>{
-      const manager = newManager(answers.name, answers.id, answers.email, answers.officeNumber);
+      const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
       employees.push(manager);
       menuOptions();
     })
-    addManager ()
-}
+  }
+  addManager ()
 
 const menuOptions = () => {
-  prompt({
+  inquirer
+   .prompt({
     type: 'rawlist',
-    name: 'menuOptions',
-    choies: [
+    name: 'menu',
+    choices: [
       'Engineer',
       'Intern',
       'Exit',
     ],
     message: 'Please select from the list of available options.'
   }).then((answers) => {
-    switch(answers.menuOptions) {
-      case 'Engineer': {
+    switch(answers.menu) {
+      case 'Engineer': 
         addEngineer ();
         break;
-      }
-      case 'Intern': {
+      
+      case 'Intern': 
         addIntern ();
         break;
-      }
-      default: {
-        process.exit();
-        break;
-      }
+      
+      default: 
+      createTeam();
+      // process.exit();
+        
+      
 
     }
 
   })
 }
 
+
 const addEngineer = () => {
-  inquire
+  inquirer
     .prompt ([
       {
         type: 'input',
@@ -96,14 +101,15 @@ const addEngineer = () => {
       },
     ])
     .then((answers) => {
-      const engineer = newEngineer (answers.name, answers.id, answers.email, answers.github);
+      const engineer = new Engineer (answers.name, answers.id, answers.email, answers.github);
       employees.push(engineer);
       menuOptions();
     });
 };
 
+
 const addIntern = () => {
-  inquire
+  inquirer
     .prompt ([
       {
         type: 'input',
@@ -127,44 +133,22 @@ const addIntern = () => {
       },
     ])
     .then((answers) => {
-      const intern = newIntern (answers.name, answers.id, answers.email, answers.school);
+      const intern = new Intern (answers.name, answers.id, answers.email, answers.school);
       employees.push(intern);
       menuOptions();
     })
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const createTeam = () => {
+const test = template(employees);
+console.log(test);
+    fs.writeFile('./dist/team.html', template(employees), function (err) {
+      if (err) throw err;
+    })
+    console.log ('TEAM CREATED!');
+    
+  
+}
 
 
 
