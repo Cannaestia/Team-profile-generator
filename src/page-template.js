@@ -5,14 +5,14 @@ const generateTeam = team => {
     // create the manager html
     const generateManager = manager => {
         return `
-        <div>
+        <div class="card">
             <div>
                 <h2>${manager.getName()}</h2>
                 <h3>
-                    <i class="fas fa-mug-hot mr-2"></i> ${manager.getRole()}
+                    <i class="fas fa-mug-hot mr-2">&nbsp</i> ${manager.getRole()}
                 </h3>
             </div>
-            <div>
+            <div class="container">
                 <ul>
                     <li>
                         ID: ${manager.getId()}
@@ -32,14 +32,14 @@ const generateTeam = team => {
     // create the html for engineers
     const generateEngineer = engineer => {
         return `
-        <div>
+        <div class="card">
             <div>
                 <h2>${engineer.getName()}</h2>
                 <h3>
-                    <i class="fas fa-glasses mr-2"></i>${engineer.getRole()}
+                    <i class="fas fa-glasses mr-2">&nbsp</i>${engineer.getRole()}
                 </h3>
             </div>
-            <div>
+            <div class="container">
                 <ul>
                     <li>ID: ${engineer.getId()}</li>
                     <li>
@@ -57,17 +57,17 @@ const generateTeam = team => {
     // create the html for interns
     const generateIntern = intern => {
         return `
-        <div>
+        <div class="card">
     <div>
         <h2>${intern.getName()}</h2>
         <h3>
-            <i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}
+            <i class="fas fa-user-graduate mr-2">&nbsp</i>${intern.getRole()}
         </h3>
     </div>
-    <div>
+    <div class="container">
         <ul>
             <li>ID: ${intern.getId()}</li>
-            <li>${intern.getEmail()}</a></li>
+            <li><a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
             <li>School: ${intern.getSchool()}</li>
         </ul>
     </div>
