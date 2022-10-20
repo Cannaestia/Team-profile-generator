@@ -10,11 +10,13 @@
 * [Test](#test)
 * [Questions](#questions)
   
-## Description
+## Description!
+
 This application allows you to generate your teams profiles to an HTML website.
 
 ## Visuals
 ![Team-Profile-Generator](/My-Team.png)
+[Annotate Image](https://user-images.githubusercontent.com/108596767/197005253-6b716124-62c0-4615-8e17-81e4d987ea9b.gif)
       
 ## Installation
 Before using the application do a npm install. Run node index.js to start the prompts. Complete the information requested and generate your webpage!
